@@ -1,0 +1,40 @@
+
+
+https://github.com/wifiphisher/wifiphisher.git
+cd wifiphisher
+sudo apt-get update --fix-missing
+apt install libssl-dev libnl-3-dev libnl-genl-3-dev -y
+apt install python3-setuptools -y
+sudo nano setup.py to edit
+search for tornado (e.g. tornado 5.0.0)
+replace "5.0.0" to "5.1.1"
+save file
+python3 setup.py install --> makesure your at wifiphisher folder
+
+
+switch adapter to monitor mode
+follow this:
+
+scan for adapters type:
+
+ifconfig / ip a
+
+choose adapter example : wlan0
+
+sudo airmon-ng start wlan0
+
+wifiphisher --force-hostapd
+
+
+
+//////////////dongle drivers
+https://github.com/sahibdhanjal/Realtek-802.11-Drivers
+
+sudo apt-get install git dkms
+git clone https://github.com/lwfinger/rtl8188eu.git
+sudo dkms add ./rtl8188eu
+sudo dkms install 8188eu/1.0
+
+
+
+links : https://www.youtube.com/watch?v=X5rpwcb6EuQ
