@@ -38,3 +38,19 @@ sudo dkms install 8188eu/1.0
 
 
 links : https://www.youtube.com/watch?v=X5rpwcb6EuQ
+
+
+
+/////////////how to modify .cap or capture handshake
+
+required tools
+* aircrack.ng
+* johntheripper
+
+steps. 
+-go to .cap file location
+-open terminal
+-type "aircrack-ng Filelocation/file.cap -J newfilelocation/newfilename" without double quote
+-type "hccap2john Filelocation/file.hccap > newfilelocation/newfilename.txt" without double quote
+
+thats it
